@@ -1,0 +1,2 @@
+class Proy < ApplicationRecord
+end

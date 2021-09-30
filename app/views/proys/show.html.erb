@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @proy.nombre %>
+</p>
+
+<p>
+  <strong>Imagen:</strong>
+  <%= @proy.imagen %>
+</p>
+
+<%= link_to 'Edit', edit_proy_path(@proy) %> |
+<%= link_to 'Back', proys_path %>

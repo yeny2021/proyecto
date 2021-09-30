@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Proys</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Imagen</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @proys.each do |proy| %>
+      <tr>
+        <td><%= proy.nombre %></td>
+        <td><%= proy.imagen %></td>
+        <td><%= link_to 'Show', proy %></td>
+        <td><%= link_to 'Edit', edit_proy_path(proy) %></td>
+        <td><%= link_to 'Destroy', proy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Proy', new_proy_path %>
