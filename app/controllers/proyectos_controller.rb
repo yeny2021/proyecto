@@ -1,12 +1,4 @@
-
-
-
-
-
-
-
-
-0ppclass ProyectosController < ApplicationController
+class ProyectosController < ApplicationController
   before_action :set_proyecto, only: [:show, :edit, :update, :destroy]
 
   # GET /proyectos
