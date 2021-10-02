@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   resources :proys
   resources :proyectos
   root "landpage#index"
