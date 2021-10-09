@@ -1,6 +1,6 @@
 class ProysController < ApplicationController
-  before_action :set_proy, only: [:show, :edit, :update, :destroy]
-
+  #before_action :set_proy, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
   # GET /proys
   # GET /proys.json
   def index

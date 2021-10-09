@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :categoria
   devise_for :users
   resources :proys
   resources :proyectos
