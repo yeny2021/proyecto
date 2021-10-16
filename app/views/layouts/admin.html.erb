@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rails2</title>
+    <title>Administrador</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,33 +13,24 @@
   </head>
 
   <body id="page-top">
-    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg bg-danger text-uppercase fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand" href="#page-top">MundoPet</a>
+        <a class="navbar-brand" href="/#page-top">MundoPet</a>
         <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
         </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                  <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/productos/filter">Productos</a></li>
-                  <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" 
-                  href="/#portafolio">Portafolio</a></li>
-                  <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"href="/#about">Acerca de</a></li>
-                  <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/#contact">Contacto</a></li>
+                  <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/productos">Productos</a></li>
+                  <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/categorias">Categorias</a></li>
+                  <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="ordenes">Ordenes</a></li>
                   <% if signed_in? %>
                     <li class="nav-item mx-0 mx-lg-1">
-                      <a href="/proyectos"
-                        class="nav-link py-3 px-0 px-lg.3 rounded">
-                        Proyectos
-                      </a>
-                    </li>
-                    <li class="nav-item mx-0 mx-lg-1">
-                      <a href="/productos"
-                        class="nav-link py-3 px-0 px-lg.3 rounded">
-                        Admin
-                      </a>
-                    </li>
+                    <a href="/proyectos"
+                    class="nav-link py-3 px-0 px-lg.3 rounded">
+                    Proyectos
+                  </li>
                   <% end %>
                   <li class="nav-item mx-0 mx-lg-1">
                     <% if signed_in? %>

@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Productos</h1>
+
+<table id= 'myTable' class= 'table'>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Categoria</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @productos.each do |producto| %>
+      <tr>
+        <td><%= producto.nombre %></td>
+        <td><%= producto.categorium.nombre %></td>
+        <td><%= link_to 'Mostrar', producto %></td>
+        <td><%= link_to 'Editar', edit_producto_path(producto) %></td>
+        <td><%= link_to 'Eliminar', producto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Producto', new_producto_path %>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"></script>
+<script>
+  $(document).on("ready", function () {
+  alert("D")
+  $('#myTable').DataTable();} );
+</script>
