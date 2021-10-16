@@ -17,7 +17,7 @@ class OrdenProductosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create orden_producto" do
     assert_difference('OrdenProducto.count') do
-      post orden_productos_url, params: { orden_producto: { cantidad: @orden_producto.cantidad, instrucciones: @orden_producto.instrucciones, orden_id: @orden_producto.orden_id, precio: @orden_producto.precio, prodcuto_id: @orden_producto.prodcuto_id } }
+      post orden_productos_url, params: { orden_producto: { cantidad: @orden_producto.cantidad, descuento: @orden_producto.descuento, instrucciones: @orden_producto.instrucciones, orden_id: @orden_producto.orden_id, precio: @orden_producto.precio, producto_id: @orden_producto.producto_id } }
     end
 
     assert_redirected_to orden_producto_url(OrdenProducto.last)
@@ -34,7 +34,7 @@ class OrdenProductosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update orden_producto" do
-    patch orden_producto_url(@orden_producto), params: { orden_producto: { cantidad: @orden_producto.cantidad, instrucciones: @orden_producto.instrucciones, orden_id: @orden_producto.orden_id, precio: @orden_producto.precio, prodcuto_id: @orden_producto.prodcuto_id } }
+    patch orden_producto_url(@orden_producto), params: { orden_producto: { cantidad: @orden_producto.cantidad, descuento: @orden_producto.descuento, instrucciones: @orden_producto.instrucciones, orden_id: @orden_producto.orden_id, precio: @orden_producto.precio, producto_id: @orden_producto.producto_id } }
     assert_redirected_to orden_producto_url(@orden_producto)
   end
 

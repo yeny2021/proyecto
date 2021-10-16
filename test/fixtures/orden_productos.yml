@@ -2,14 +2,16 @@
 
 one:
   orden: one
-  prodcuto: one
+  producto: one
   cantidad: 1
   precio: 9.99
+  descuento: 9.99
   instrucciones: MyString
 
 two:
   orden: two
-  prodcuto: two
+  producto: two
   cantidad: 1
   precio: 9.99
+  descuento: 9.99
   instrucciones: MyString

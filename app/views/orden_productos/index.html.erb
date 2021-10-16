@@ -6,9 +6,10 @@
   <thead>
     <tr>
       <th>Orden</th>
-      <th>Prodcuto</th>
+      <th>Producto</th>
       <th>Cantidad</th>
       <th>Precio</th>
+      <th>Descuento</th>
       <th>Instrucciones</th>
       <th colspan="3"></th>
     </tr>
@@ -18,9 +19,10 @@
     <% @orden_productos.each do |orden_producto| %>
       <tr>
         <td><%= orden_producto.orden_id %></td>
-        <td><%= orden_producto.prodcuto_id %></td>
+        <td><%= orden_producto.producto_id %></td>
         <td><%= orden_producto.cantidad %></td>
         <td><%= orden_producto.precio %></td>
+        <td><%= orden_producto.descuento %></td>
         <td><%= orden_producto.instrucciones %></td>
         <td><%= link_to 'Show', orden_producto %></td>
         <td><%= link_to 'Edit', edit_orden_producto_path(orden_producto) %></td>

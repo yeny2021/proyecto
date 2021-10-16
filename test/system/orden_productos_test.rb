@@ -15,10 +15,11 @@ class OrdenProductosTest < ApplicationSystemTestCase
     click_on "New Orden Producto"
 
     fill_in "Cantidad", with: @orden_producto.cantidad
+    fill_in "Descuento", with: @orden_producto.descuento
     fill_in "Instrucciones", with: @orden_producto.instrucciones
     fill_in "Orden", with: @orden_producto.orden_id
     fill_in "Precio", with: @orden_producto.precio
-    fill_in "Prodcuto", with: @orden_producto.prodcuto_id
+    fill_in "Producto", with: @orden_producto.producto_id
     click_on "Create Orden producto"
 
     assert_text "Orden producto was successfully created"
@@ -30,10 +31,11 @@ class OrdenProductosTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Cantidad", with: @orden_producto.cantidad
+    fill_in "Descuento", with: @orden_producto.descuento
     fill_in "Instrucciones", with: @orden_producto.instrucciones
     fill_in "Orden", with: @orden_producto.orden_id
     fill_in "Precio", with: @orden_producto.precio
-    fill_in "Prodcuto", with: @orden_producto.prodcuto_id
+    fill_in "Producto", with: @orden_producto.producto_id
     click_on "Update Orden producto"
 
     assert_text "Orden producto was successfully updated"
