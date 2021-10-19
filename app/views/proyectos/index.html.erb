@@ -18,9 +18,9 @@
               <td><%= proyecto.nombre %></td>
               <td><%= proyecto.imagen %></td>
               <td><%= proyecto.description %></td>
-              <td><%= link_to 'Show', proyecto %></td>
-              <td><%= link_to 'Edit', edit_proyecto_path(proyecto) %></td>
-              <td><%= link_to 'Destroy', proyecto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Mostrar', proyecto %></td>
+              <td><%= link_to 'Editar', edit_proyecto_path(proyecto) %></td>
+              <td><%= link_to 'Eliminar', proyecto, method: :delete, data: { confirm: 'Estás segura?' } %></td>
             </tr>
           <% end %>
         </tbody>
