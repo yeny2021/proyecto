@@ -9,6 +9,8 @@ class OrdensController < ApplicationController
   end
 
   def carrito
+    @qty = params[:cantidad]
+    @producto_id = params[:producto_id]
   end
 
   # GET /ordens/1

@@ -1,7 +1,7 @@
 class ProductosController < ApplicationController
   before_action :set_producto, only: [:show, :edit, :update, :destroy]
 
-  layout 'admin', except: [:filter]
+  layout 'admin', except: [:filter, :comprar]
 
   # GET /productos
   # GET /productos.json
