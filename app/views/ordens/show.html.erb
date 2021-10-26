@@ -1,3 +1,78 @@
+<table class="table">
+  <tbody>
+    <tr>
+      <td width="3">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+              <strong>Nombre Cliente: </strong>
+              <%= @orden.cliente.full_name %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Documento de Identidad: </strong>
+                <%= @orden.cliente.dni %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+      <td width="1">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+              <strong>Codigo de orden:</strong>
+              <%= @orden.codigo %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <strong>Fecha de Proceso:</strong>
+              <%= @orden.proceso_text %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <strong>Fecha de Entrega:</strong>
+              <%= @orden.entrega_text %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <strong>Fecha de Cierre:</strong>
+              <%= @orden.cierre_text %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Cantidad</th>
+      <th>Precio</th>
+      <th>Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orden.orden_producto.each do |t| %>
+    <tr>
+      <td><%= t.producto.nombre %></td>
+      <td><%= t.cantidad %></td>
+      <td><%= t.precio %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <p id="notice"><%= notice %></p>
 
 <p>

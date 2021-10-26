@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :ordens do
     collection do
       post :carrito
+      get :carrito
     end
   end
   resources :clientes

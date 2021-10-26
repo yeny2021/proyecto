@@ -1,7 +1,7 @@
 class OrdensController < ApplicationController
   before_action :set_orden, only: [:show, :edit, :update, :destroy]
 
-  layout "admin"
+  layout "admin", except: [:carrito]
   # GET /ordens
   # GET /ordens.json
   def index
@@ -11,6 +11,43 @@ class OrdensController < ApplicationController
   def carrito
     @qty = params[:cantidad]
     @producto_id = params[:producto_id]
+
+  cliente = Cliente.all.first
+  if cliente.blank?
+     cliente = Cliente.new
+     cliente.nombres = "Ray"
+     cliente.apell_pat = "Rojas"
+     cliente.apell_mat = "Enciso"
+     cliente.dni = "000000"
+     cliente.save
+  end
+
+  ord = Orden.all.first
+  if ord.blank?
+    ord = Orden.new
+    ord.cliente_id = cliente.id
+    ord.codigo = "202110-01"
+    ord.proceso = "2016-10-30"
+    ord.entrega = "2016-10-30"
+    ord.cierre = "2016-10-30"
+    ord.save()
+  end
+
+  oprod = OrdenProducto
+      .where(orden_id: ord.id, 
+        producto_id: @producto_id).first
+
+    if oprod.blank?
+      oprod = OrdenProducto.new
+      oprod.producto_id = @producto_id
+      oprod.orden_id = ord.id
+      oprod.cantidad = @qty
+      oprod.instrucciones = "---"
+      oprod.descuento = 0
+      oprod.save
+    end
+
+
   end
 
   # GET /ordens/1

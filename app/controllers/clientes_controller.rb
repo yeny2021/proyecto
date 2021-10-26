@@ -1,5 +1,7 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
+ 
+  layout "admin"
 
   # GET /clientes
   # GET /clientes.json

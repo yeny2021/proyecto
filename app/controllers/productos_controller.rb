@@ -3,6 +3,11 @@ class ProductosController < ApplicationController
 
   layout 'admin', except: [:filter, :comprar]
 
+  def initialize
+    super
+    @categorias = Categorium.all
+  end
+
   # GET /productos
   # GET /productos.json
   def index
@@ -80,6 +85,6 @@ class ProductosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def producto_params
-      params.require(:producto).permit(:nombre, :categorium_id)
+      params.require(:producto).permit(:nombre, :categorium_id, :descripcion, :imagen)
     end
 end
