@@ -1,8 +1,11 @@
 <h1>Carrito</h1>
-<table>
+<table class="table">
   <tbody>
+    <% @orden.orden_producto.each do |t| %>
     <tr>
-      <td><%= @producto_id %></td>
+      <td><%= t.producto.nombre %></td>
+      <td><%= t.cantidad %></td>
     </tr>
+    <% end %>
   </tbody>
 </table>

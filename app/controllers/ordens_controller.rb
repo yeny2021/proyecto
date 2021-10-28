@@ -1,6 +1,7 @@
 class OrdensController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_orden, only: [:show, :edit, :update, :destroy]
-
+    
   layout "admin", except: [:carrito]
   # GET /ordens
   # GET /ordens.json
@@ -11,22 +12,28 @@ class OrdensController < ApplicationController
   def carrito
     @qty = params[:cantidad]
     @producto_id = params[:producto_id]
-
-  cliente = Cliente.all.first
+  
+    #Buscamos al cliente asociado al usuario
+  cliente = Cliente.where(user_id: current_user.id).first
   if cliente.blank?
+    #en caso de no existir, lo creamos
      cliente = Cliente.new
-     cliente.nombres = "Ray"
-     cliente.apell_pat = "Rojas"
-     cliente.apell_mat = "Enciso"
-     cliente.dni = "000000"
+     cliente.nombres = "---"
+     cliente.apell_pat = "---"
+     cliente.apell_mat = "---"
+     cliente.dni = "---"
      cliente.save
   end
 
-  ord = Orden.all.first
+  #Buscar ultima orden del cliente encontrada
+  #Ejemplo: imagina que sus ordenes son la 50, 60, 70 ,80
+  #orden descendente=> 90.80. 70. 60 50
+  ord = Orden.where(cliente_id: cliente.id).order("id desc").first
   if ord.blank?
     ord = Orden.new
     ord.cliente_id = cliente.id
-    ord.codigo = "202110-01"
+  #cuenta de ordesdes es 45=> codigo seria 0045
+    ord.codigo = "#{Orden.all.count +1}".rjust(4, "0")
     ord.proceso = "2016-10-30"
     ord.entrega = "2016-10-30"
     ord.cierre = "2016-10-30"
@@ -36,7 +43,8 @@ class OrdensController < ApplicationController
   oprod = OrdenProducto
       .where(orden_id: ord.id, 
         producto_id: @producto_id).first
-
+   #asocia la orden con el producto, pero primero busca si existe una asocacion
+   #si no existe la asociación  producto vs orden la crea
     if oprod.blank?
       oprod = OrdenProducto.new
       oprod.producto_id = @producto_id
@@ -46,7 +54,7 @@ class OrdensController < ApplicationController
       oprod.descuento = 0
       oprod.save
     end
-
+    @orden = ord
 
   end
 

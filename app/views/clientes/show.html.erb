@@ -23,7 +23,7 @@
   <div class="col-8">
     <div class="card">
       <div class="card-header">
-        Mi Perfil
+        <%= @vista.to_s.capitalize %>
       </div>
       <div class="card-Body">
           <% if @vista== "perfil" %>
@@ -36,5 +36,5 @@
   </div>
 </div>
 
-<%= link_to 'Editas', edit_cliente_path(@cliente) %> |
+<%= link_to 'Editar', edit_cliente_path(@cliente) %> |
 <%= link_to 'Volver', clientes_path %>

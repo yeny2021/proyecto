@@ -1,6 +1,8 @@
 <ul>
   <% cliente.ordens.each do |t| %>
-    <li><%= t.codigo %> </li>
+    <li>
+    <%= t.codigo %> <a href= "/ordens/<%= t.id %>"> Ver Orden></a>
+    </li>
   <% end %>
 </ul>
 
