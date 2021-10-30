@@ -1,0 +1,12 @@
+<h1>Datos de Usuario</h1>
+
+<!-- mi variable se llama @roles-->
+<!-- mi variable se llama @roles-->
+<form>
+  <select>
+    <% @roles.each do |t| %>
+    <option value="<%= t.id %>"> <%= t.nombre %></option>
+    <% end %>
+  </select>
+  <button class= "btn btn-primary"> Asignar Rol</button>
+</form>
